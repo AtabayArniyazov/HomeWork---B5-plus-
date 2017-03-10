@@ -1,18 +1,10 @@
 "use strict";
 
-function buildWrapper(argument) {
-	var strTag1 = String("<" + argument + ">"),
-		strTag2 = String("</" + argument + ">");
+function buildWrapper(tagName) {
+	var tagOpen = String("<" + tagName + ">"),
+		tagClose = String("</" + tagName + ">");
 
 	return function (text) {
-		return console.log(String(strTag1 + text + strTag2));
+		return tagOpen + text + tagClose;
 	}
 }
-
-var wrapH1 = buildWrapper("h1"),
-	wrapP = buildWrapper("p"),
-	wrapDiv = buildWrapper("div");
-
-wrapH1("СТИХИ");
-wrapP("Однажды в студёную зимнюю пору");
-wrapDiv("Privet Medved");
